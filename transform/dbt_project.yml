@@ -1,0 +1,23 @@
+name: 'github_analytics'
+version: '1.0.0'
+config-version: 2
+
+profile: 'github_analytics'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  github_analytics:
+    staging:
+      +materialized: view
+    core:
+      +materialized: table

@@ -1,0 +1,32 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+  "name": "Python 3",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "image": "mcr.microsoft.com/devcontainers/python:2-3.14-trixie",
+  "runArgs": [
+    "--env-file",
+    "C:/Users/siddh/Documents/github-analytics/.env"
+  ],
+  "customizations": {
+    "jetbrains": {
+      "backend": "PyCharm",
+      "plugins": [
+        "org.jetbrains.dbt"
+      ]
+    },
+    "pycharm": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python3.14"
+      }
+    },
+    "vscode": {
+      "extensions": [
+        "innoverio.vscode-dbt-power-user"
+      ]
+    }
+  },
+  "postCreateCommand": "pip install dbt-core dbt-bigquery\npip install -r requirements.txt"
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+}
